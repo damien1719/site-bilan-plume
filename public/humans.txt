@@ -1,0 +1,9 @@
+/* TEAM */
+Site: Bilan Plume
+URL: https://www.bilanplume.fr
+
+/* TECHNOLOGY */
+Stack: Next.js 14, React, TypeScript, Tailwind CSS
+Hosting: Vercel (assumed)
+
+

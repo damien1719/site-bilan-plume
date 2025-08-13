@@ -10,9 +10,48 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Bilan Plume - Bilans psychomoteurs automatiques",
+  metadataBase: new URL("https://www.bilanplume.fr"),
+  title: {
+    default: "Bilan Plume - Bilans psychomoteurs automatiques",
+    template: "%s | Bilan Plume",
+  },
   description:
     "Transformez vos bilans psychomoteurs en un clin d'œil avec notre outil d'écriture automatique conçu pour les professionnels de santé.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.bilanplume.fr",
+    title: "Bilan Plume - Bilans psychomoteurs automatiques",
+    description:
+      "Transformez vos bilans psychomoteurs en un clin d'œil avec notre outil d'écriture automatique conçu pour les professionnels de santé.",
+    siteName: "Bilan Plume",
+    images: [
+      {
+        url: "https://www.bilanplume.fr/logo-bilan-plume.png",
+        width: 1200,
+        height: 630,
+        alt: "Bilan Plume",
+      },
+    ],
+    locale: "fr_FR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bilan Plume - Bilans psychomoteurs automatiques",
+    description:
+      "Transformez vos bilans psychomoteurs en un clin d'œil avec notre outil d'écriture automatique conçu pour les professionnels de santé.",
+    images: ["https://www.bilanplume.fr/logo-bilan-plume.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/logo-bilan-plume.png",
+  },
+  manifest: "/site.webmanifest",
   generator: "v0.app",
 }
 

@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
+import Image from "next/image"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -6,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowLeft, Shield, Calendar, CheckCircle, Users, Clock } from "lucide-react"
 import Link from "next/link"
+import EssaiFormClient from "./EssaiFormClient"
 
 export default function EssaiGratuitPage() {
   return (
@@ -19,7 +22,7 @@ export default function EssaiGratuitPage() {
               <span>Retour à l'accueil</span>
             </Link>
             <div className="flex items-center gap-2">
-              <img src="/logo-bilan-plume.png" alt="Bilan Plume" className="w-8 h-8" />
+              <Image src="/logo-bilan-plume.png" alt="Bilan Plume" width={32} height={32} />
               <span className="font-bold text-xl text-primary">Bilan Plume</span>
             </div>
           </div>
@@ -38,94 +41,7 @@ export default function EssaiGratuitPage() {
                 </p>
               </div>
 
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="prenom">Prénom *</Label>
-                    <Input id="prenom" placeholder="Votre prénom" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="nom">Nom *</Label>
-                    <Input id="nom" placeholder="Votre nom" required />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="email">Email professionnel *</Label>
-                  <Input id="email" type="email" placeholder="votre.email@exemple.com" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="telephone">Téléphone *</Label>
-                  <Input id="telephone" type="tel" placeholder="06 12 34 56 78" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="profession">Profession *</Label>
-                  <Select required>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Sélectionnez votre profession" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="psychomotricien">Psychomotricien(ne)</SelectItem>
-                      <SelectItem value="ergotherapeute">Ergothérapeute</SelectItem>
-                      <SelectItem value="neuropsychologue">Neuropsychologue</SelectItem>
-                      <SelectItem value="autre">Autre profession de santé</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  
-                  
-                </div>
-
-                <div>
-                  
-                  <Select>
-                    
-                    <SelectContent>
-                      <SelectItem value="1-5">1 à 5 bilans</SelectItem>
-                      <SelectItem value="6-10">6 à 10 bilans</SelectItem>
-                      <SelectItem value="11-20">11 à 20 bilans</SelectItem>
-                      <SelectItem value="20+">Plus de 20 bilans</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  
-                  <Select>
-                    
-                    <SelectContent>
-                      <SelectItem value="matin">Matinée (9h-12h)</SelectItem>
-                      <SelectItem value="apres-midi">Après-midi (14h-17h)</SelectItem>
-                      <SelectItem value="soir">Soirée (18h-20h)</SelectItem>
-                      <SelectItem value="flexible">Flexible</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  
-                  
-                </div>
-
-                
-
-                <Button
-                  type="submit"
-                  size="xl"
-                  className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-12 py-4 text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
-                >
-                  <Calendar className="w-6 h-6 mr-2" />
-                  Réserver ma démo gratuite
-                </Button>
-
-                <p className="text-center text-sm text-gray-500">
-                  Démo de 20 minutes • Accès essai 14 jours • Sans engagement
-                </p>
-              </form>
+              <EssaiFormClient />
             </div>
           </div>
 
@@ -194,4 +110,27 @@ export default function EssaiGratuitPage() {
       </div>
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: "Essai gratuit",
+  description:
+    "Réservez une démo personnalisée et profitez de 14 jours d'essai gratuit de Bilan Plume, l'outil d'aide à la rédaction de bilans psychomoteurs.",
+  alternates: {
+    canonical: "/essai-gratuit",
+  },
+  openGraph: {
+    url: "https://www.bilanplume.fr/essai-gratuit",
+    title: "Essai gratuit | Bilan Plume",
+    description:
+      "Réservez une démo personnalisée et profitez de 14 jours d'essai gratuit de Bilan Plume.",
+    images: [
+      {
+        url: "https://www.bilanplume.fr/logo-bilan-plume.png",
+        width: 1200,
+        height: 630,
+        alt: "Bilan Plume",
+      },
+    ],
+  },
 }
