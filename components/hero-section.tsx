@@ -61,7 +61,7 @@ export function HeroSection() {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl hover-lift">
               <Image
-                src="/psychomotricienne-cabinet.webp"
+                src="/pexels-karolina-grabowska-4467687.png"
                 alt="Psychomotricienne souriante rédigeant un bilan dans son cabinet avec matériel thérapeutique"
                 width={600}
                 height={400}
