@@ -3,7 +3,9 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 import { Calendar, Clock, User } from "lucide-react"
+import type { Metadata } from "next"
 
 export default function BlogPage() {
   const articles = [
@@ -85,6 +87,14 @@ export default function BlogPage() {
     "Témoignage",
   ]
 
+  const slugify = (value: string) =>
+    value
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "")
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -122,17 +132,19 @@ export default function BlogPage() {
                 className="border-gray-100 hover:shadow-lg transition-shadow duration-300 overflow-hidden"
               >
                 <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                  <img
+                  <Image
                     src={article.image || "/placeholder.svg"}
                     alt={article.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
                   />
                   <Badge className="absolute top-3 left-3 bg-primary text-white">{article.category}</Badge>
                 </div>
 
                 <CardHeader>
                   <CardTitle className="text-xl hover:text-primary transition-colors">
-                    <Link href={`/blog/${article.id}`}>{article.title}</Link>
+                    <Link href={`/blog/${slugify(article.title)}`}>{article.title}</Link>
                   </CardTitle>
                 </CardHeader>
 
@@ -183,4 +195,27 @@ export default function BlogPage() {
       <Footer />
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Conseils, actualités et bonnes pratiques pour les professionnels de la psychomotricité. Découvrez nos articles et guides.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    url: "https://www.bilanplume.fr/blog",
+    title: "Blog | Bilan Plume",
+    description:
+      "Conseils, actualités et bonnes pratiques pour les professionnels de la psychomotricité.",
+    images: [
+      {
+        url: "https://www.bilanplume.fr/logo-bilan-plume.png",
+        width: 1200,
+        height: 630,
+        alt: "Bilan Plume",
+      },
+    ],
+  },
 }

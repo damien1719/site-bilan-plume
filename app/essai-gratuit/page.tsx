@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
+import Image from "next/image"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -19,7 +21,7 @@ export default function EssaiGratuitPage() {
               <span>Retour à l'accueil</span>
             </Link>
             <div className="flex items-center gap-2">
-              <img src="/logo-bilan-plume.png" alt="Bilan Plume" className="w-8 h-8" />
+              <Image src="/logo-bilan-plume.png" alt="Bilan Plume" width={32} height={32} />
               <span className="font-bold text-xl text-primary">Bilan Plume</span>
             </div>
           </div>
@@ -115,7 +117,7 @@ export default function EssaiGratuitPage() {
 
                 <Button
                   type="submit"
-                  size="xl"
+                  size="lg"
                   className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-12 py-4 text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
                 >
                   <Calendar className="w-6 h-6 mr-2" />
@@ -194,4 +196,27 @@ export default function EssaiGratuitPage() {
       </div>
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: "Essai gratuit",
+  description:
+    "Réservez une démo personnalisée et profitez de 14 jours d'essai gratuit de Bilan Plume, l'outil d'aide à la rédaction de bilans psychomoteurs.",
+  alternates: {
+    canonical: "/essai-gratuit",
+  },
+  openGraph: {
+    url: "https://www.bilanplume.fr/essai-gratuit",
+    title: "Essai gratuit | Bilan Plume",
+    description:
+      "Réservez une démo personnalisée et profitez de 14 jours d'essai gratuit de Bilan Plume.",
+    images: [
+      {
+        url: "https://www.bilanplume.fr/logo-bilan-plume.png",
+        width: 1200,
+        height: 630,
+        alt: "Bilan Plume",
+      },
+    ],
+  },
 }

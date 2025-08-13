@@ -1,0 +1,17 @@
+{
+  "name": "Bilan Plume",
+  "short_name": "BilanPlume",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2C7A5D",
+  "icons": [
+    {
+      "src": "/logo-bilan-plume.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
+

@@ -8,6 +8,7 @@ import { KeyFeaturesSection } from "@/components/key-features-section"
 import { CtaSection } from "@/components/cta-section"
 import { FaqSection } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
 
 export default function HomePage() {
   return (
@@ -27,4 +28,27 @@ export default function HomePage() {
       <Footer />
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description:
+    "Outil d'écriture automatique pour bilans psychomoteurs: gagnez du temps et améliorez la qualité de vos documents.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: "https://www.bilanplume.fr/",
+    title: "Accueil | Bilan Plume",
+    description:
+      "Outil d'écriture automatique pour bilans psychomoteurs: gagnez du temps et améliorez la qualité de vos documents.",
+    images: [
+      {
+        url: "https://www.bilanplume.fr/logo-bilan-plume.png",
+        width: 1200,
+        height: 630,
+        alt: "Bilan Plume",
+      },
+    ],
+  },
 }
