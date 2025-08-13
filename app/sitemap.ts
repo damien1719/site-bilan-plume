@@ -78,6 +78,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
+    // Nouveaux articles
+    {
+      url: `${baseUrl}/blog/methode-simple-claire`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/bilan-psychomoteur-etapes-tests-rendu-professionnel`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/tests-fonctions-executives-enfant`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/ia-bilan-psychomoteur-gagner-2h`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
   ]
 }
 

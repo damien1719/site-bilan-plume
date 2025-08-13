@@ -10,7 +10,55 @@ import type { Metadata } from "next"
 export default function BlogPage() {
   const articles = [
     {
+      id: 9,
+      title: "IA et bilans cliniques : comment gagner 2h par dossier",
+      excerpt:
+        "Standardisez vos trames, automatisez les calculs et générez un premier jet intelligent. Découvrez comment un logiciel d’IA pour bilan psychomoteur vous fait gagner jusqu’à 2 h par dossier.",
+      author: "Bilan Plume",
+      date: "22 Août 2025",
+      readTime: "7 min",
+      category: "Innovation",
+      image: "/intelligence-artificielle-sante.png",
+      slug: "ia-bilan-psychomoteur-gagner-2h"
+    },
+    {
+      id: 7,
+      title: "Quels tests utiliser pour évaluer les fonctions exécutives chez l’enfant ?",
+      excerpt:
+        "NEPSY-II, Figure de Rey, MABC : comment choisir et interpréter les tests des fonctions exécutives chez l’enfant, avec exemples concrets et FAQ.",
+      author: "Bilan Plume",
+      date: "21 Août 2025",
+      readTime: "6 min",
+      category: "Documentation",
+      image: "/intelligence-artificielle-sante.png",
+      slug: "tests-fonctions-executives-enfant"
+    },
+    {
+      id: 0,
+      title: "Bilan psychomoteur : étapes, tests et méthodes pour un rendu professionnel",
+      excerpt:
+        "Guide complet du bilan psychomoteur : observation, tests, cotations, interprétation, et modèle de rapport. Conseils concrets pour un compte rendu clair et utile.",
+      author: "Bilan Plume",
+      date: "20 Août 2025",
+      readTime: "8 min",
+      category: "Documentation",
+      image: "/medical-report-writing.png",
+      slug: "bilan-psychomoteur-etapes-tests-rendu-professionnel"
+    },
+    {
       id: 1,
+      title: "Méthode simple pour des bilans psychomoteurs précis et rapides",
+      excerpt:
+        "Découvrez comment rédiger des bilans clairs et efficaces avec une méthode pragmatique pour gagner du temps sans perdre en qualité clinique.",
+      author: "Bilan Plume",
+      date: "13 Août 2025",
+      readTime: "5 min",
+      category: "Pratique Clinique",
+      image: "/psychomotricite-therapie.png",
+      slug: "methode-simple-claire"
+    },
+    {
+      id: 2,
       title: "Meilleures pratiques en psychomotricité : Guide 2024",
       excerpt:
         "Découvrez les dernières recommandations pour optimiser vos séances de psychomotricité et améliorer l'accompagnement de vos patients.",
@@ -19,17 +67,7 @@ export default function BlogPage() {
       readTime: "5 min",
       category: "Pratique Clinique",
       image: "/psychomotricite-therapie.png",
-    },
-    {
-      id: 2,
-      title: "Comment optimiser vos bilans psychomoteurs ?",
-      excerpt:
-        "Techniques et astuces pour rédiger des bilans plus efficaces et complets, tout en gagnant du temps dans votre pratique quotidienne.",
-      author: "Thomas Dubois",
-      date: "10 Mars 2024",
-      readTime: "7 min",
-      category: "Documentation",
-      image: "/medical-report-writing.png",
+        slug: "meilleures-pratiques-en-psychomotricite-guide-2024"
     },
     {
       id: 3,
@@ -41,6 +79,7 @@ export default function BlogPage() {
       readTime: "6 min",
       category: "Innovation",
       image: "/intelligence-artificielle-sante.png",
+      slug: "ia-sante-revolution-ou-evolution"
     },
     {
       id: 4,
@@ -52,6 +91,7 @@ export default function BlogPage() {
       readTime: "4 min",
       category: "Développement",
       image: "/professional-time-management.png",
+        slug: "gestion-du-temps-professionnels-de-sante"
     },
     {
       id: 5,
@@ -63,6 +103,7 @@ export default function BlogPage() {
       readTime: "8 min",
       category: "Réglementation",
       image: "/placeholder-gur1m.png",
+      slug: "nouveautes-reglementaires-psychomotricite"
     },
     {
       id: 6,
@@ -74,6 +115,7 @@ export default function BlogPage() {
       readTime: "3 min",
       category: "Témoignage",
       image: "/professional-health-testimonial.png",
+        slug: "temoignage-ma-premiere-annee-avec-bilan-plume"
     },
   ]
 
@@ -101,7 +143,7 @@ export default function BlogPage() {
 
       <main className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+          {/* En-tête */}
           <div className="text-center mb-12">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Blog Bilan Plume</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -109,7 +151,7 @@ export default function BlogPage() {
             </p>
           </div>
 
-          {/* Categories */}
+          {/* Catégories */}
           <div className="flex flex-wrap gap-2 mb-12 justify-center">
             {categories.map((category) => (
               <Badge
@@ -124,7 +166,7 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Articles Grid */}
+          {/* Grille des articles */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
               <Card
@@ -133,7 +175,7 @@ export default function BlogPage() {
               >
                 <div className="aspect-video bg-gray-100 relative overflow-hidden">
                   <Image
-                    src={article.image || "/placeholder.svg"}
+                    src={article.image}
                     alt={article.title}
                     fill
                     sizes="(max-width: 1024px) 50vw, 33vw"
@@ -144,7 +186,9 @@ export default function BlogPage() {
 
                 <CardHeader>
                   <CardTitle className="text-xl hover:text-primary transition-colors">
-                    <Link href={`/blog/${slugify(article.title)}`}>{article.title}</Link>
+                    <Link href={`/blog/${article.slug || slugify(article.title)}`}>
+                      {article.title}
+                    </Link>
                   </CardTitle>
                 </CardHeader>
 
@@ -172,7 +216,7 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Newsletter CTA */}
+          {/* Newsletter */}
           <div className="mt-20 bg-[#FAF9F7] rounded-2xl p-8 lg:p-12 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Restez informé des dernières actualités</h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
