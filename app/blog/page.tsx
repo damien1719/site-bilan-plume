@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User } from "lucide-react"
 import type { Metadata } from "next"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 export default function BlogPage() {
   const articles = [
@@ -140,16 +141,7 @@ export default function BlogPage() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Recevez nos articles directement dans votre boîte mail et ne manquez aucune nouveauté du secteur.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Votre email professionnel"
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button className="bg-primary hover:bg-[#2C7A5D] text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                S'abonner
-              </button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
       </main>
