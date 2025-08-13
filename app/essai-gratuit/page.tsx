@@ -35,9 +35,9 @@ export default function EssaiGratuitPage() {
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <div className="space-y-6">
               <div className="text-center space-y-4">
-                <h1 className="text-3xl font-bold text-gray-900">Réservez votre essai gratuit</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Planifiez votre démonstration gratuite</h1>
                 <p className="text-lg text-gray-600">
-                  Commencez en réservant votre démo gratuite
+                  Remplissez ce formulaire pour que nous vous contactons et planifions ensemble votre démonstration. Vous aurez ensuite accès à votre essai gratuit.
                 </p>
               </div>
 

@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import "./globals.css"
+import { GTMListener } from "@/components/gtm-listener"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <GTMListener />
         {children}
       </body>
     </html>

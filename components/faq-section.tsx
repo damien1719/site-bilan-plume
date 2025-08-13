@@ -25,7 +25,7 @@ export function FaqSection() {
     {
       question: "Puis-je personnaliser mes trames de bilan ?",
       answer:
-        "Absolument. Vous pouvez créer vos propres trames ou utiliser celles proposées par Bilan Plume et les adapter à votre pratique.",
+        "Absolument. Vous pouvez directement importer vos propres trames ou utiliser celles proposées par Bilan Plume et les adapter à votre pratique.",
     },
     {
       question: "Pour qui est fait Bilan Plume ?",

@@ -35,14 +35,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/a-propos" className="text-gray-400 hover:text-white transition-colors">
+{/*                 <Link href="/a-propos" className="text-gray-400 hover:text-white transition-colors">
                   À propos
-                </Link>
+                </Link> */}
               </li>
               <li>
-                <Link href="/connexion" className="text-gray-400 hover:text-white transition-colors">
+{/*                 <Link href="/connexion" className="text-gray-400 hover:text-white transition-colors">
                   Se connecter
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </div>
@@ -67,7 +67,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link 
+                  href="mailto:support@bilanplume.fr" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Contact
                 </Link>
               </li>
