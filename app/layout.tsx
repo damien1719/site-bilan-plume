@@ -1,4 +1,5 @@
 import type React from "react"
+import { Suspense } from "react"
 import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import "./globals.css"
@@ -75,7 +76,9 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <GTMListener />
+        <Suspense fallback={null}>
+          <GTMListener />
+        </Suspense>
         {children}
       </body>
     </html>
