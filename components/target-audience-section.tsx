@@ -44,8 +44,9 @@ export function TargetAudienceSection() {
               {audiences.map((audience, index) => (
                 <Button
                   key={index}
+                  size="lg"
                   variant={activeTab === index ? "default" : "ghost"}
-                  className={`w-full justify-start p-4 h-auto ${
+                  className={`w-full justify-start p-4 h-auto text-lg ${
                     activeTab === index ? "text-white" : "text-gray-700 hover:bg-gray-100"
                   }`}
                   onClick={() => setActiveTab(index)}

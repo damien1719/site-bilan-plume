@@ -95,46 +95,11 @@ export default function EssaiFormClient() {
         </Select>
       </div>
 
-      <div>
-        <Label>Nombre de bilans/mois</Label>
-        <Select value={nbBilans} onValueChange={setNbBilans}>
-          <SelectTrigger>
-            <SelectValue placeholder="Sélectionnez" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1-5">1 à 5 bilans</SelectItem>
-            <SelectItem value="6-10">6 à 10 bilans</SelectItem>
-            <SelectItem value="11-20">11 à 20 bilans</SelectItem>
-            <SelectItem value=">20">Plus de 20 bilans</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div>
-        <Label>Préférence de créneau</Label>
-        <Select value={disponibilite} onValueChange={setDisponibilite}>
-          <SelectTrigger>
-            <SelectValue placeholder="Sélectionnez" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="matin">Matinée (9h-12h)</SelectItem>
-            <SelectItem value="apres-midi">Après-midi (14h-17h)</SelectItem>
-            <SelectItem value="soir">Soirée (18h-20h)</SelectItem>
-            <SelectItem value="flexible">Flexible</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div>
-        <Label htmlFor="message">Message (optionnel)</Label>
-        <Textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Votre contexte ou préférences..." />
-      </div>
-
       {feedback && <p className="text-sm text-gray-600">{feedback}</p>}
 
       <Button type="submit" size="lg" disabled={submitting} className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-12 py-4 text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl">
         <Calendar className="w-6 h-6 mr-2" />
-        {submitting ? "Envoi..." : "Réserver ma démo gratuite"}
+        {submitting ? "Envoi..." : "Planifiez votre démonstration gratuite"}
       </Button>
     </form>
   )

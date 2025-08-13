@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       },
     })
 
-    const toAddress = "no-reply@bilan-plume.fr"
+    const toAddress = process.env.LEAD_TO_EMAIL
     const subject = `Nouvelle demande d'essai – ${data.prenom} ${data.nom}`
     const text = `Nouvelle demande d'essai gratuit\n\nNom: ${data.nom}\nPrénom: ${data.prenom}\nEmail: ${data.email}\nTéléphone: ${data.telephone}\nProfession: ${data.profession || "-"}\nNombre de bilans/mois: ${data.nbBilans || "-"}\nDisponibilité: ${data.disponibilite || "-"}\n\nMessage:\n${data.message || "(aucun)"}`
     const html = `
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     `
 
     await transporter.sendMail({
-      from: `Bilan Plume <no-reply@bilan-plume.fr>`,
+      from: `Bilan Plume <${process.env.LEAD_FROM_EMAIL}>`,
       to: toAddress,
       subject,
       text,

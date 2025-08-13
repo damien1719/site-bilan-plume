@@ -12,7 +12,7 @@ export default function MentionsLegalesPage() {
       <h1>Mentions légales</h1>
       <p>Editeur du site: Bilan Plume</p>
       <p>Site: https://www.bilanplume.fr</p>
-      <p>Contact: contact@bilanplume.fr</p>
+      <p>Contact: support@bilanplume.fr</p>
       <h2>Hébergement</h2>
       <p>Hébergeur: Vercel</p>
       <h2>Propriété intellectuelle</h2>

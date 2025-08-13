@@ -16,7 +16,7 @@ export default function ConfidentialitePage() {
       <h2>Vos droits</h2>
       <p>Accès, rectification, suppression, portabilité, opposition.</p>
       <h2>Contact DPO</h2>
-      <p>privacy@bilanplume.fr</p>
+      <p>support@bilanplume.fr</p>
     </main>
   )
 }
