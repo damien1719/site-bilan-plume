@@ -58,10 +58,11 @@ export function HeroSection() {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl hover-lift">
               <Image
-                src="/20250813_1122_Psychomotricienne IA SaaS_simple_compose_01k2hbmqj8ebfaskbge8rg4tm6.png"
+                src="/20250813_1122_Psychomotricienne-IA-SaaS_simple_compose_01k2hbmqj8ebfaskbge8rg4tm6.webp"
                 alt="Psychomotricienne souriante rédigeant un bilan dans son cabinet avec matériel thérapeutique"
                 width={600}
                 height={400}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 className="w-full h-auto object-cover"
                 priority
               />

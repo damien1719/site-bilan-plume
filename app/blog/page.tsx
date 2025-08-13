@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User } from "lucide-react"
@@ -30,7 +29,7 @@ export default function BlogPage() {
       date: "21 Août 2025",
       readTime: "6 min",
       category: "Documentation",
-      image: "/intelligence-artificielle-sante.png",
+      image: "/psychomotricite-therapie.png",
       slug: "tests-fonctions-executives-enfant"
     },
     {
@@ -56,78 +55,10 @@ export default function BlogPage() {
       category: "Pratique Clinique",
       image: "/psychomotricite-therapie.png",
       slug: "methode-simple-claire"
-    },
-    {
-      id: 2,
-      title: "Meilleures pratiques en psychomotricité : Guide 2024",
-      excerpt:
-        "Découvrez les dernières recommandations pour optimiser vos séances de psychomotricité et améliorer l'accompagnement de vos patients.",
-      author: "Dr. Sophie Martin",
-      date: "15 Mars 2024",
-      readTime: "5 min",
-      category: "Pratique Clinique",
-      image: "/psychomotricite-therapie.png",
-        slug: "meilleures-pratiques-en-psychomotricite-guide-2024"
-    },
-    {
-      id: 3,
-      title: "L'IA au service de la santé : révolution ou évolution ?",
-      excerpt:
-        "Analyse de l'impact de l'intelligence artificielle sur les professions de santé et les opportunités qu'elle offre aux praticiens.",
-      author: "Marie Leroy",
-      date: "5 Mars 2024",
-      readTime: "6 min",
-      category: "Innovation",
-      image: "/intelligence-artificielle-sante.png",
-      slug: "ia-sante-revolution-ou-evolution"
-    },
-    {
-      id: 4,
-      title: "Gestion du temps : conseils pour les professionnels de santé",
-      excerpt:
-        "Stratégies pratiques pour optimiser votre emploi du temps et équilibrer vie professionnelle et personnelle.",
-      author: "Dr. Pierre Moreau",
-      date: "28 Février 2024",
-      readTime: "4 min",
-      category: "Développement",
-      image: "/professional-time-management.png",
-        slug: "gestion-du-temps-professionnels-de-sante"
-    },
-    {
-      id: 5,
-      title: "Nouveautés réglementaires en psychomotricité",
-      excerpt:
-        "Tour d'horizon des dernières évolutions réglementaires qui impactent la pratique de la psychomotricité en France.",
-      author: "Avocat Santé",
-      date: "20 Février 2024",
-      readTime: "8 min",
-      category: "Réglementation",
-      image: "/placeholder-gur1m.png",
-      slug: "nouveautes-reglementaires-psychomotricite"
-    },
-    {
-      id: 6,
-      title: "Témoignage : Ma première année avec Bilan Plume",
-      excerpt:
-        "Retour d'expérience d'une psychomotricienne qui utilise Bilan Plume depuis un an. Bilan et conseils pratiques.",
-      author: "Julie Bertrand",
-      date: "15 Février 2024",
-      readTime: "3 min",
-      category: "Témoignage",
-      image: "/professional-health-testimonial.png",
-        slug: "temoignage-ma-premiere-annee-avec-bilan-plume"
-    },
+    }
   ]
 
-  const categories = [
-    "Tous",
-    "Pratique Clinique",
-    "Documentation",
-    "Innovation",
-    "Développement",
-    "Réglementation",
-    "Témoignage",
-  ]
+  
 
   const slugify = (value: string) =>
     value
@@ -151,20 +82,7 @@ export default function BlogPage() {
             </p>
           </div>
 
-          {/* Catégories */}
-          <div className="flex flex-wrap gap-2 mb-12 justify-center">
-            {categories.map((category) => (
-              <Badge
-                key={category}
-                variant={category === "Tous" ? "default" : "secondary"}
-                className={`cursor-pointer hover:bg-primary hover:text-white transition-colors ${
-                  category === "Tous" ? "bg-primary text-white" : ""
-                }`}
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
+          
 
           {/* Grille des articles */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -181,7 +99,7 @@ export default function BlogPage() {
                     sizes="(max-width: 1024px) 50vw, 33vw"
                     className="object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <Badge className="absolute top-3 left-3 bg-primary text-white">{article.category}</Badge>
+                  
                 </div>
 
                 <CardHeader>
