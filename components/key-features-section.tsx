@@ -1,4 +1,4 @@
-import { BookOpen, Brain, Calculator, Eye, FileText, Users, History, AlertTriangle } from "lucide-react"
+import { BookOpen, Brain, Calculator, Eye, FileText, Users, History, AlertTriangle, Pencil, PenTool } from "lucide-react"
 import Image from "next/image"
 
 export function KeyFeaturesSection() {
@@ -24,9 +24,9 @@ export function KeyFeaturesSection() {
       description: "Partage de trames et de rapports au sein de votre équipe ou réseau (optionnel).",
     },
     {
-      icon: History,
-      title: "Historique & versions",
-      description: "Traçabilité des modifications, doublons/snapshots.",
+      icon: Pencil,
+      title: "Personnalisation",
+      description: "Personnalisez votre trame ou le style de Bilan Plume pour coller au votre pratique.",
     },
   ]
 
