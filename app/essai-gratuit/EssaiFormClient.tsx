@@ -142,10 +142,17 @@ export default function EssaiFormClient() {
         type="submit"
         size="lg"
         disabled={submitting}
-        className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-6 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl whitespace-normal text-balance"
+        className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-4 sm:px-6 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
       >
         <Calendar className="w-6 h-6 mr-2 shrink-0" />
-        {submitting ? "Envoi..." : "Planifiez votre démonstration gratuite"}
+        {submitting ? (
+          "Envoi..."
+        ) : (
+          <>
+            <span className="hidden sm:inline">Planifiez votre démonstration gratuite</span>
+            <span className="sm:hidden">Réserver une démo</span>
+          </>
+        )}
       </Button>
     </form>
   )
