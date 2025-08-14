@@ -2,6 +2,7 @@
 
 import { Clock, Award, Users, Quote, Calculator, Sparkles, TrendingUp } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 export function BenefitsSection() {
   const [showCalculator, setShowCalculator] = useState(false)
@@ -48,6 +49,15 @@ export function BenefitsSection() {
   return (
     <section className="py-12 bg-gradient-to-br from-white via-[#f8fcfa] to-[#f0faf6] relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <div className="flex justify-center mb-16">
+          <Image
+            src="/Test.png"
+            alt="Psychomotricienne souriante rédigeant un bilan dans son cabinet avec matériel thérapeutique"
+            width={450}
+            height={300}
+            className="w-full h-auto object-contain"
+          />
+        </div>
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {benefits.map((benefit, index) => (
             <div key={index} className="text-center p-6 hover-lift">
