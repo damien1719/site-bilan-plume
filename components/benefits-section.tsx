@@ -32,16 +32,16 @@ export function BenefitsSection() {
   const testimonials = [
     {
       quote:
-        "Bilan Plume m'a fait gagner 3 heures par semaine. Je peux enfin me concentrer sur mes patients plutôt que sur la rédaction administrative.",
-      author: "Marie L.",
-      role: "Psychomotricienne, Paris",
+        "Bilan Plume m'a fait gagner 2 heures par bilan. Je peux enfin me concentrer sur mes patients plutôt que sur la rédaction administrative.",
+      author: "Caroline",
+      role: "Psychomotricienne",
     },
-    {
+/*     {
       quote:
         "La qualité des bilans générés est impressionnante. Mes collègues médecins apprécient la clarté et la structure des comptes-rendus.",
-      author: "Thomas D.",
-      role: "Psychomotricien libéral, Lyon",
-    },
+      author: "Pauline",
+      role: "Psychomotricien libéral",
+    }, */
   ]
 
   const timesSaved = bilansPerWeek * 2
@@ -121,7 +121,7 @@ export function BenefitsSection() {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

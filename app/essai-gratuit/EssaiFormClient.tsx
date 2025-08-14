@@ -22,12 +22,10 @@ export default function EssaiFormClient() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setFeedback(null)
-
     if (!prenom || !nom || !email || !telephone) {
       setFeedback("Veuillez remplir les champs requis.")
       return
     }
-
     setSubmitting(true)
     try {
       const res = await fetch("/api/contact", {
@@ -35,21 +33,13 @@ export default function EssaiFormClient() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prenom, nom, email, telephone, profession, nbBilans, disponibilite, message }),
       })
-
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
         throw new Error(data?.error || "Erreur lors de l'envoi du message")
       }
-
       setFeedback("Votre demande a été envoyée. Nous vous recontactons rapidement.")
-      setPrenom("")
-      setNom("")
-      setEmail("")
-      setTelephone("")
-      setProfession("")
-      setNbBilans("")
-      setDisponibilite("")
-      setMessage("")
+      setPrenom(""); setNom(""); setEmail(""); setTelephone("")
+      setProfession(""); setNbBilans(""); setDisponibilite(""); setMessage("")
     } catch (err: any) {
       setFeedback(err?.message || "Une erreur est survenue.")
     } finally {
@@ -59,34 +49,72 @@ export default function EssaiFormClient() {
 
   return (
     <form className="space-y-6" onSubmit={onSubmit}>
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
+      {/* champs nom/prénom */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="min-w-0">
           <Label htmlFor="prenom">Prénom *</Label>
-          <Input id="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} placeholder="Votre prénom" required />
+          <Input
+            id="prenom"
+            value={prenom}
+            onChange={(e) => setPrenom(e.target.value)}
+            placeholder="Votre prénom"
+            required
+            autoComplete="given-name"
+            className="w-full text-base"
+          />
         </div>
-        <div>
+        <div className="min-w-0">
           <Label htmlFor="nom">Nom *</Label>
-          <Input id="nom" value={nom} onChange={(e) => setNom(e.target.value)} placeholder="Votre nom" required />
+          <Input
+            id="nom"
+            value={nom}
+            onChange={(e) => setNom(e.target.value)}
+            placeholder="Votre nom"
+            required
+            autoComplete="family-name"
+            className="w-full text-base"
+          />
         </div>
       </div>
 
-      <div>
+      <div className="min-w-0">
         <Label htmlFor="email">Email professionnel *</Label>
-        <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="votre.email@exemple.com" required />
+        <Input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="votre.email@exemple.com"
+          required
+          autoComplete="email"
+          inputMode="email"
+          className="w-full text-base"
+        />
       </div>
 
-      <div>
+      <div className="min-w-0">
         <Label htmlFor="telephone">Téléphone *</Label>
-        <Input id="telephone" type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} placeholder="06 12 34 56 78" required />
+        <Input
+          id="telephone"
+          type="tel"
+          value={telephone}
+          onChange={(e) => setTelephone(e.target.value)}
+          placeholder="06 12 34 56 78"
+          required
+          autoComplete="tel"
+          inputMode="tel"
+          className="w-full text-base"
+        />
       </div>
 
-      <div>
+      <div className="min-w-0">
         <Label>Profession *</Label>
         <Select value={profession} onValueChange={setProfession}>
-          <SelectTrigger>
+          <SelectTrigger className="w-full text-base">
             <SelectValue placeholder="Sélectionnez votre profession" />
           </SelectTrigger>
-          <SelectContent>
+          {/* Limiter la hauteur en mobile pour éviter les débordements */}
+          <SelectContent className="max-h-[60vh]">
             <SelectItem value="psychomotricien">Psychomotricien(ne)</SelectItem>
             <SelectItem value="ergotherapeute">Ergothérapeute</SelectItem>
             <SelectItem value="neuropsychologue">Neuropsychologue</SelectItem>
@@ -95,14 +123,30 @@ export default function EssaiFormClient() {
         </Select>
       </div>
 
+      {/* Optionnel : champs libres si tu les utilises */}
+      <div className="min-w-0">
+        <Label htmlFor="message">Message (optionnel)</Label>
+        <Textarea
+          id="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Précisez vos disponibilités ou vos besoins"
+          className="w-full text-base"
+          rows={4}
+        />
+      </div>
+
       {feedback && <p className="text-sm text-gray-600">{feedback}</p>}
 
-      <Button type="submit" size="lg" disabled={submitting} className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-12 py-4 text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl">
-        <Calendar className="w-6 h-6 mr-2" />
+      <Button
+        type="submit"
+        size="lg"
+        disabled={submitting}
+        className="w-full bg-gradient-to-r from-primary via-[#2C7A5D] to-[#1a5d47] hover:from-[#2C7A5D] hover:to-primary text-white px-6 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl whitespace-normal text-balance"
+      >
+        <Calendar className="w-6 h-6 mr-2 shrink-0" />
         {submitting ? "Envoi..." : "Planifiez votre démonstration gratuite"}
       </Button>
     </form>
   )
 }
-
-
