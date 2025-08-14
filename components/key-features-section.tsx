@@ -1,4 +1,5 @@
 import { BookOpen, Brain, Calculator, Eye, FileText, Users, History, AlertTriangle } from "lucide-react"
+import Image from "next/image"
 
 export function KeyFeaturesSection() {
   const features = [
@@ -13,20 +14,9 @@ export function KeyFeaturesSection() {
       description: "Suggestions de formulations, reformulation « tout public » pour parents/enseignants.",
     },
     {
-      icon: Calculator,
-      title: "Tableaux & calculs auto",
-      description:
-        "Insertion de tableaux de résultats, calculs de rangs percentiles/notes standard (configurables par l'utilisateur).",
-    },
-    {
-      icon: Eye,
-      title: "Sections conditionnelles",
-      description: "Masquez/affichez automatiquement les parties non pertinentes.",
-    },
-    {
       icon: FileText,
       title: "Exports et partage",
-      description: "PDF/DOCX, gabarits de mise en page, filigranes.",
+      description: "DOCX, gabarits de mise en page, filigranes.",
     },
     {
       icon: Users,
@@ -45,6 +35,16 @@ export function KeyFeaturesSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="font-bold text-3xl md:text-4xl text-gray-900 mb-4">Fonctionnalités clés</h2>
+        </div>
+
+        <div className="flex justify-center mb-12">
+          <Image src="/Test.png" alt="Fonctionnalités clés" width={1000} height={1000} />
+        </div>
+        <div className="flex justify-center mb-12">
+          <Image src="/Test 2.png" alt="Fonctionnalités clés" width={1000} height={1000} className="rounded-lg" />
+        </div>
+        <div className="flex justify-center mb-12">
+          <Image src="/Test 3.png" alt="Fonctionnalités clés" width={1000} height={1000} />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
