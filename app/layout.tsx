@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${dmSans.variable} antialiased`}>
       <head>
-        {/* Google Tag Manager */}
+        {/* GTM script */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -68,10 +68,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })(window,document,'script','dataLayer','GTM-PL55ZMV7');
           `}
         </Script>
-        {/* Fin GTM */}
       </head>
       <body>
-        {/* GTM noscript (doit rester dans <body>) */}
+        {/* GTM noscript */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PL55ZMV7"
@@ -82,7 +81,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
 
-        {/* Si ton GTMListener pousse des page_view sur changement de route, garde-le */}
         <Suspense fallback={null}>
           <GTMListener />
         </Suspense>
