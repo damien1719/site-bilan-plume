@@ -48,7 +48,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' }
+    ]
   },
   manifest: "/site.webmanifest",
   generator: "v0.app",
