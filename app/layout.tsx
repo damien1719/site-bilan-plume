@@ -1,15 +1,12 @@
-import type React from "react"
-import { Suspense } from "react"
-import type { Metadata } from "next"
-import { DM_Sans } from "next/font/google"
-import "./globals.css"
-import { GTMListener } from "@/components/gtm-listener"
+import type { Metadata } from "next";
+import Script from "next/script";              // ⟵ important
+import { Suspense } from "react";
+import { DM_Sans } from "next/font/google";
+import "./globals.css";
+import { GTMListener } from "@/components/gtm-listener";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-dm-sans",
-})
+const dmSans = DM_Sans({ subsets: ["latin"], display: "swap", variable: "--font-dm-sans" });
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bilanplume.fr"),
@@ -57,30 +54,42 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${dmSans.variable} antialiased`}>
+      <head>
+        {/* Google Tag Manager */}
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PL55ZMV7');
+          `}
+        </Script>
+        {/* Fin GTM */}
+      </head>
       <body>
-        {/* Google Tag Manager (noscript) */}
+        {/* GTM noscript (doit rester dans <body>) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PL55ZMV7"
             height="0"
             width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
+            style={{ display: "none", visibility: "hidden" }}
             title="Google Tag Manager"
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
+
+        {/* Si ton GTMListener pousse des page_view sur changement de route, garde-le */}
         <Suspense fallback={null}>
           <GTMListener />
         </Suspense>
+
         {children}
       </body>
     </html>
-  )
+  );
 }
+
