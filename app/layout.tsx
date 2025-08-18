@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/logo-bilan-plume.png",
+    icon: "/favicon.ico",
   },
   manifest: "/site.webmanifest",
   generator: "v0.app",
