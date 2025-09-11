@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import type { ReactNode } from "react"
+import { SiteLayout } from "@/components/site-layout"
 
 type Article = {
   slug: string
@@ -752,50 +753,50 @@ export default function BlogArticlePage({ params }: PageProps) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto px-4 py-12">
-      <nav className="mb-6 text-sm text-gray-500">
-        <Link href="/" className="hover:underline">
-          Accueil
-        </Link>{" "}
-        /{" "}
-        <Link href="/blog" className="hover:underline">
-          Blog
-        </Link>{" "}
-        / <span className="text-gray-700">{article.title}</span>
-      </nav>
+    <SiteLayout>
+      <article className="max-w-3xl mx-auto px-4 py-12">
+          <nav className="mb-6 text-sm text-gray-500">
+            <Link href="/" className="hover:underline">
+              Accueil
+            </Link>{" "}
+            /{" "}
+            <Link href="/blog" className="hover:underline">
+              Blog
+            </Link>{" "}
+            / <span className="text-gray-700">{article.title}</span>
+          </nav>
 
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">{article.title}</h1>
-      <p className="text-gray-600 mb-6">Par {article.author} • {new Date(article.date).toLocaleDateString("fr-FR")}</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{article.title}</h1>
+          <p className="text-gray-600 mb-6">Par {article.author} • {new Date(article.date).toLocaleDateString("fr-FR")}</p>
 
-      <div className="relative aspect-video w-full mb-8 overflow-hidden rounded-xl border border-gray-100">
-        <Image
-          src={article.image}
-          alt={article.title}
-          fill
-          sizes="(max-width: 768px) 100vw, 768px"
-          className="object-cover"
-          priority
-        />
-      </div>
+          <div className="relative aspect-video w-full mb-8 overflow-hidden rounded-xl border border-gray-100">
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+              priority
+            />
+          </div>
 
-      <div className="prose prose-lg max-w-none">
-        {article.content ? (
-          <>{article.content}</>
-        ) : (
-          <>
-            <p>{article.excerpt}</p>
-            <p>
-              Ceci est un exemple d'article. Ajoutez ici votre contenu riche: sections, listes, visuels, et liens internes
-              vers d'autres ressources du site.
-            </p>
-          </>
-        )}
-      </div>
+          <div className="prose prose-lg max-w-none">
+            {article.content ? (
+              <>{article.content}</>
+            ) : (
+              <>
+                <p>{article.excerpt}</p>
+                <p>
+                  Ceci est un exemple d'article. Ajoutez ici votre contenu riche: sections, listes, visuels, et liens internes
+                  vers d'autres ressources du site.
+                </p>
+              </>
+            )}
+          </div>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
-    </article>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      </article>
+    </SiteLayout>
   )
 }
-
-
