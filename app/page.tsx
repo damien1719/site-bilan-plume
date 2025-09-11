@@ -1,4 +1,4 @@
-import { Header } from "@/components/header"
+import { SiteLayout } from "@/components/site-layout"
 import { HeroSection } from "@/components/hero-section"
 import { BenefitsSection } from "@/components/benefits-section"
 import { InlineCta } from "@/components/inline-cta"
@@ -7,13 +7,11 @@ import { HowItWorksSection } from "@/components/how-it-works-section"
 import { KeyFeaturesSection } from "@/components/key-features-section"
 import { CtaSection } from "@/components/cta-section"
 import { FaqSection } from "@/components/faq-section"
-import { Footer } from "@/components/footer"
 import type { Metadata } from "next"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <SiteLayout>
       <main>
         <HeroSection />
         <BenefitsSection />
@@ -25,8 +23,7 @@ export default function HomePage() {
         <CtaSection />
         <FaqSection />
       </main>
-      <Footer />
-    </div>
+    </SiteLayout>
   )
 }
 

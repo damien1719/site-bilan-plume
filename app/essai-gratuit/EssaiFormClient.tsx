@@ -11,7 +11,6 @@ export default function EssaiFormClient() {
   const [prenom, setPrenom] = useState("")
   const [nom, setNom] = useState("")
   const [email, setEmail] = useState("")
-  const [telephone, setTelephone] = useState("")
   const [profession, setProfession] = useState("")
   const [nbBilans, setNbBilans] = useState("")
   const [disponibilite, setDisponibilite] = useState("")
@@ -22,7 +21,7 @@ export default function EssaiFormClient() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setFeedback(null)
-    if (!prenom || !nom || !email || !telephone) {
+    if (!prenom || !nom || !email) {
       setFeedback("Veuillez remplir les champs requis.")
       return
     }
@@ -31,14 +30,14 @@ export default function EssaiFormClient() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prenom, nom, email, telephone, profession, nbBilans, disponibilite, message }),
+        body: JSON.stringify({ prenom, nom, email, profession, nbBilans, disponibilite, message }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
         throw new Error(data?.error || "Erreur lors de l'envoi du message")
       }
       setFeedback("Votre demande a été envoyée. Nous vous recontactons rapidement.")
-      setPrenom(""); setNom(""); setEmail(""); setTelephone("")
+      setPrenom(""); setNom(""); setEmail("")
       setProfession(""); setNbBilans(""); setDisponibilite(""); setMessage("")
     } catch (err: any) {
       setFeedback(err?.message || "Une erreur est survenue.")
@@ -93,22 +92,7 @@ export default function EssaiFormClient() {
       </div>
 
       <div className="min-w-0">
-        <Label htmlFor="telephone">Téléphone *</Label>
-        <Input
-          id="telephone"
-          type="tel"
-          value={telephone}
-          onChange={(e) => setTelephone(e.target.value)}
-          placeholder="06 12 34 56 78"
-          required
-          autoComplete="tel"
-          inputMode="tel"
-          className="w-full text-base"
-        />
-      </div>
-
-      <div className="min-w-0">
-        <Label>Profession *</Label>
+        <Label>Profession (optionnel)</Label>
         <Select value={profession} onValueChange={setProfession}>
           <SelectTrigger className="w-full text-base">
             <SelectValue placeholder="Sélectionnez votre profession" />

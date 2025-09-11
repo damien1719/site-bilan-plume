@@ -1,5 +1,4 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+import { SiteLayout } from "@/components/site-layout"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
@@ -70,9 +69,7 @@ export default function BlogPage() {
       .replace(/(^-|-$)+/g, "")
 
   return (
-    <div className="min-h-screen">
-      <Header />
-
+    <SiteLayout>
       <main className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* En-tête */}
@@ -145,9 +142,7 @@ export default function BlogPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </SiteLayout>
   )
 }
 

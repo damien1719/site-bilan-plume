@@ -5,7 +5,7 @@ type Payload = {
   prenom: string
   nom: string
   email: string
-  telephone: string
+  telephone?: string
   profession?: string
   nbBilans?: string
   disponibilite?: string
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   try {
     const data = (await request.json()) as Partial<Payload>
 
-    if (!data.prenom || !data.nom || !data.email || !data.telephone) {
+    if (!data.prenom || !data.nom || !data.email) {
       return NextResponse.json({ error: "Champs requis manquants" }, { status: 400 })
     }
 
@@ -32,13 +32,12 @@ export async function POST(request: Request) {
 
     const toAddress = process.env.LEAD_TO_EMAIL
     const subject = `Nouvelle demande d'essai – ${data.prenom} ${data.nom}`
-    const text = `Nouvelle demande d'essai gratuit\n\nNom: ${data.nom}\nPrénom: ${data.prenom}\nEmail: ${data.email}\nTéléphone: ${data.telephone}\nProfession: ${data.profession || "-"}\nNombre de bilans/mois: ${data.nbBilans || "-"}\nDisponibilité: ${data.disponibilite || "-"}\n\nMessage:\n${data.message || "(aucun)"}`
+    const text = `Nouvelle demande d'essai gratuit\n\nNom: ${data.nom}\nPrénom: ${data.prenom}\nEmail: ${data.email}\nProfession: ${data.profession || "-"}\nNombre de bilans/mois: ${data.nbBilans || "-"}\nDisponibilité: ${data.disponibilite || "-"}\n\nMessage:\n${data.message || "(aucun)"}`
     const html = `
       <h2>Nouvelle demande d'essai gratuit</h2>
       <p><strong>Nom:</strong> ${data.nom}</p>
       <p><strong>Prénom:</strong> ${data.prenom}</p>
       <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Téléphone:</strong> ${data.telephone}</p>
       <p><strong>Profession:</strong> ${data.profession || "-"}</p>
       <p><strong>Nombre de bilans/mois:</strong> ${data.nbBilans || "-"}</p>
       <p><strong>Disponibilité:</strong> ${data.disponibilite || "-"}</p>
@@ -60,5 +59,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 })
   }
 }
-
 
