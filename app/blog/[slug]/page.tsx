@@ -142,7 +142,7 @@ const articles: Article[] = [
         <p><strong>Quel temps de prise en main ?</strong><br/>Généralement <strong>1 à 2 séances</strong> suffisent pour maîtriser trames, saisie et export.</p>
 
         <h2>Appel à l’action</h2>
-        <p>Prêt·e à tester un <strong>logiciel d’IA pour bilan clinique</strong> qui <strong>fait gagner jusqu’à 2 h par dossier</strong> ? <Link href="/essai-gratuit">Demandez une démo</Link> et repartez avec une trame prête à l’emploi + un premier jet sur l’un de vos cas.</p>
+        <p>Prêt·e à tester un <strong>logiciel d’IA pour bilan clinique</strong> qui <strong>fait gagner jusqu’à 2 h par dossier</strong> ? <Link href="/essai">Demandez une démo</Link> et repartez avec une trame prête à l’emploi + un premier jet sur l’un de vos cas.</p>
 
         <script
           type="application/ld+json"
@@ -309,7 +309,7 @@ const articles: Article[] = [
 
         <h3>Petit CTA</h3>
         <blockquote>
-          <strong>Gagnez du temps sur vos bilans.</strong> Avec Bilan Plume, structurez vos observations, centralisez vos scores et générez un premier jet révisable en quelques minutes — fidèle à votre pratique. <Link href="/essai-gratuit">Essayer gratuitement</Link>.
+          <strong>Gagnez du temps sur vos bilans.</strong> Avec Bilan Plume, structurez vos observations, centralisez vos scores et générez un premier jet révisable en quelques minutes — fidèle à votre pratique. <Link href="/essai">Essayer gratuitement</Link>.
         </blockquote>
 
         <script
@@ -658,7 +658,7 @@ const articles: Article[] = [
         <p>
           Envie d’accélérer tout en gardant votre clinique aux commandes ?
           Testez vos trames, tableaux automatiques et premiers jets assistés sur <strong>Bilan Plume</strong>.
-          <Link href="/essai-gratuit">Essayer gratuitement</Link>.
+          <Link href="/essai">Essayer gratuitement</Link>.
         </p>
 
         <p className="text-sm text-gray-500">

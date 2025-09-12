@@ -18,7 +18,7 @@ export function InlineCta({ variant = "default", className = "" }: InlineCtaProp
   if (variant === "minimal") {
     return (
       <div className={`text-center py-8 ${className}`}>
-        <Link href="/essai-gratuit">
+        <Link href="/essai">
           <Button
             size="xl"
             variant="default"
@@ -38,7 +38,7 @@ export function InlineCta({ variant = "default", className = "" }: InlineCtaProp
       className={`bg-gradient-to-r from-primary-50 via-[#F5F1E8] to-[#E8F4F1] py-12 relative overflow-hidden ${className}`}
     >
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <Link href="/essai-gratuit">
+        <Link href="/essai">
           <Button
             size="xl"
             variant="default"
