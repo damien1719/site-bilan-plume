@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/essai-gratuit`,
+      url: `${baseUrl}/essai`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
@@ -93,5 +93,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
-
 

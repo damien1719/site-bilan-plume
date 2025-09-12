@@ -133,8 +133,8 @@ export default function EssaiFormClient() {
           "Envoi..."
         ) : (
           <>
-            <span className="hidden sm:inline">Planifiez votre démonstration gratuite</span>
-            <span className="sm:hidden">Réserver une démo</span>
+            <span className="hidden sm:inline">Demandez votre accès</span>
+            <span className="sm:hidden">Demandez votre accès</span>
           </>
         )}
       </Button>

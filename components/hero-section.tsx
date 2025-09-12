@@ -26,7 +26,7 @@ export function HeroSection() {
             </div>
 
             <div className="space-y-2">
-              <Link href="/essai-gratuit">
+              <Link href="/essai">
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-[#2C7A5D] text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center gap-3 rounded-xl"

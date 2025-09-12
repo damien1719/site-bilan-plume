@@ -35,9 +35,8 @@ export default function EssaiGratuitPage() {
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
             <div className="space-y-6">
               <div className="text-center space-y-4">
-                <h1 className="text-3xl font-bold text-gray-900">Planifiez votre démonstration gratuite</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Demandez votre accès</h1>
                 <p className="text-lg text-gray-600">
-                  Remplissez ce formulaire pour que nous vous contactons et planifions ensemble votre démonstration. Vous aurez ensuite accès à votre essai gratuit.
                 </p>
               </div>
 
@@ -47,6 +46,7 @@ export default function EssaiGratuitPage() {
 
           {/* Avantages */}
           <div className="space-y-8">
+            {/*
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Comment ça se passe ?</h2>
 
@@ -82,11 +82,31 @@ export default function EssaiGratuitPage() {
                 </div>
               </div>
             </div>
+            */}
+
+            {/* Témoignage */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+              <figure className="space-y-3">
+                <blockquote className="text-lg text-gray-800 italic">
+                  « L'outil est magique. »
+                </blockquote>
+                <figcaption className="text-sm text-gray-600">Marie, psychomotricienne</figcaption>
+              </figure>
+            </div>
 
             
 
             {/* Badges de confiance */}
             <div className="grid grid-cols-1 gap-4">
+              {/* Personnalisation pour psychomotriciens */}
+              <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-3 rounded-xl border border-primary/20">
+                <Users className="w-6 h-6 text-[#a78bfa]" />
+                <div>
+                  <div className="font-medium text-gray-900">Personnalisation psychomotricité</div>
+                  <div className="text-sm text-gray-600">Trames, sections et modèles adaptés à votre pratique</div>
+                </div>
+              </div>
+
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-3 rounded-xl border border-primary/20">
                 <Shield className="w-6 h-6 text-[#6ba3d6]" />
                 <div>
@@ -117,10 +137,10 @@ export const metadata: Metadata = {
   description:
     "Réservez une démo personnalisée et profitez de 14 jours d'essai gratuit de Bilan Plume, l'outil d'aide à la rédaction de bilans psychomoteurs.",
   alternates: {
-    canonical: "/essai-gratuit",
+    canonical: "/essai",
   },
   openGraph: {
-    url: "https://www.bilanplume.fr/essai-gratuit",
+    url: "https://www.bilanplume.fr/essai",
     title: "Essai gratuit | Bilan Plume",
     description:
       "Réservez une démo personnalisée et profitez de 14 jours d'essai gratuit de Bilan Plume.",

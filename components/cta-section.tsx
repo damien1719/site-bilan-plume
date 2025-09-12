@@ -9,7 +9,7 @@ export function CtaSection() {
 
         <div className="mb-8">
           <Button size="lg" className="py-4 px-10 text-lg rounded-xl" asChild>
-            <a href="/essai-gratuit">Essayer gratuitement</a>
+            <a href="/essai">Essayer gratuitement</a>
           </Button>
         </div>
 
