@@ -53,10 +53,34 @@ export async function POST(request: Request) {
       replyTo: data.email,
     })
 
+    // Send confirmation email to the user (does not block success)
+    try {
+      const userSubject = "Merci — vous êtes sur liste d'attente"
+      const userText = `Bonjour ${data.prenom},\n\nMerci pour votre demande d'accès à Bilan Plume.\n\nVous êtes bien inscrit·e sur liste d'attente. Nous vous recontacterons très rapidement avec la suite.\n\n— L'équipe Bilan Plume`
+      const userHtml = `
+        <p>Bonjour ${data.prenom},</p>
+        <p>Merci pour votre demande d’accès à <strong>Bilan Plume</strong>.</p>
+        <p><strong>En raison d’un très grand nombre de demandes, nous avons mis en place une liste d’attente afin de préserver la qualité de l’expérience pour chacun·e.</strong><br/>
+        Vous êtes bien inscrit·e sur cette liste d’attente et nous vous recontacterons très prochainement avec la suite.</p>
+        <p>À très bientôt,<br/>
+        — L’équipe Bilan Plume</p>
+      `
+
+      await transporter.sendMail({
+        from: `Bilan Plume <${process.env.LEAD_FROM_EMAIL}>`,
+        to: data.email!,
+        subject: userSubject,
+        text: userText,
+        html: userHtml,
+        replyTo: process.env.LEAD_FROM_EMAIL,
+      })
+    } catch (e) {
+      console.error("/api/contact confirmation email error", e)
+    }
+
     return NextResponse.json({ ok: true })
   } catch (error) {
     console.error("/api/contact error", error)
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 })
   }
 }
-
