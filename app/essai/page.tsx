@@ -90,7 +90,7 @@ export default function EssaiGratuitPage() {
                 <blockquote className="text-lg text-gray-800 italic">
                   « L'outil est magique. »
                 </blockquote>
-                <figcaption className="text-sm text-gray-600">Marie, psychomotricienne</figcaption>
+                <figcaption className="text-sm text-gray-600">Marie</figcaption>
               </figure>
             </div>
 
